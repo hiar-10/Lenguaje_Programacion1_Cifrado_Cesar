@@ -31,8 +31,8 @@ public class Principal
 					simulacion[4] 	+ ". Salir\r\n"
 					+ "==============================================\r\n"
 					+ "Seleccione una opción: [X]");
-			
-			
+
+
 			// SELECCION DE OPCION
 			BufferedReader entradaTexto = new BufferedReader(new InputStreamReader(System.in));
 			opcion = Integer.parseInt(entradaTexto.readLine());
@@ -48,7 +48,7 @@ public class Principal
 				String mensajeCifrado = ProcesoCifrado.cifrar(mensaje1, desplazamiento);
 				System.out.println(mensajeCifrado + "/n");
 
-				
+
 				// REPETIR CIFRADO
 				System.out.println("\n¿Deseas volver a cifrar el mensaje?");
 				System.out.println("1. Si\r\n2. No");

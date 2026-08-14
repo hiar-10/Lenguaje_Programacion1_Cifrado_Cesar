@@ -110,7 +110,7 @@ public class ProcesoCifrado
 	// METODO PALINDRMO
 	static boolean esPalindromo(String texto)
 	{
-		
+
 		String textoNormalizado = texto.replace(" ", "").toLowerCase();
 		for (int i = 0; i < textoNormalizado.length() / 2; i++)
 		{
@@ -121,7 +121,7 @@ public class ProcesoCifrado
 			}
 		}
 		return true;
-		
+
 	}
 
 
@@ -138,6 +138,6 @@ public class ProcesoCifrado
 					"\nCiclo # :" + ciclos + "/n");
 		}
 		return resultado;
-	
+
 	}
 }
