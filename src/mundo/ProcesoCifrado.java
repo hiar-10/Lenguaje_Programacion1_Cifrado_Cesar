@@ -1,4 +1,11 @@
 package mundo;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
+
+
+
 public class ProcesoCifrado
 {
 
@@ -32,7 +39,7 @@ public class ProcesoCifrado
 	static String descifrar(String mensajeCifrado, int desplazamiento)
 	{
 		String mensajeDescifrado = "";
-		for (int i = 0 ; i < mensajeCifrado.length(); i++)			// Recorre todo el mensaje caracter por caracter hasta el último
+		for (int i = 0 ; i < mensajeCifrado.length(); i++)											// Recorre todo el mensaje caracter por caracter hasta el último
 		{
 			char caracter = mensajeCifrado.charAt(i);
 			if (Character.isUpperCase(caracter))
@@ -57,14 +64,14 @@ public class ProcesoCifrado
 	// METODO ANALIZAR FRECUENCIA
 	static String analizarFrecuencia(String mensaje)
 	{
-		int contarA = 0;
+		int contarA = 0;																					// Contadores
 		int contarE = 0;
 		int contarI = 0;
 		int contarO = 0;
 		int contarU = 0;
 		int consonantes = 0;
 
-		for (int i = 0; i < mensaje.length(); i++)
+		for (int i = 0; i < mensaje.length(); i++)														// Recorre todo el mensaje caracter por caracter hasta el último
 		{
 			char letra = Character.toLowerCase(mensaje.charAt(i));
 
@@ -121,7 +128,6 @@ public class ProcesoCifrado
 			}
 		}
 		return true;
-
 	}
 
 
@@ -135,9 +141,58 @@ public class ProcesoCifrado
 			System.out.println("\nMensaje Original :" + resultado);
 			resultado = cifrar(resultado, desplazamiento);
 			System.out.println("Mensaje Cifrado :" + resultado +
-					"\nCiclo # :" + ciclos + "/n");
+					"\nCiclo # :" + ciclos + "\n");
 		}
 		return resultado;
+	}
 
+
+	// RESTRINGIR ENTRADAS DE TEXTO
+	public static String soloLetras(BufferedReader entradaTexto) throws IOException
+	{
+		String texto;
+
+		do																									// Solicita el texto hasta que cumple las condiciones
+		{
+			texto = entradaTexto.readLine();
+
+			if (!texto.matches("[a-zA-Z ]+"))																// Solo letras del álfabeto inglés, espacios y uno o varios carácteres
+			{
+				System.out.println("Error: solo se permiten letras y espacios. Intente nuevamente:");
+			}
+
+		}
+		while (!texto.matches("[a-zA-Z ]+"));																// Solo letras del álfabeto inglés, espacios y uno o varios carácteres
+		return texto;
+	}
+
+
+	// RESTRINGIR ENTRADAS DE NUMEROS
+	public static int enteroPositivo(BufferedReader entradaNumero) throws IOException						// Solicita la entrada hasta que se cumplen las condiciones
+	{
+		int numero;
+
+		while (true)
+		{
+			try
+			{
+				numero = Integer.parseInt(entradaNumero.readLine());										// Entrada de datos convierte String a int
+
+				while (numero <= 0)
+				{ 
+					System.out.println("Error: debe ingresar un número entero positivo distinto de 0.");
+					System.out.println("Intente nuevamente: ");
+					numero = Integer.parseInt(entradaNumero.readLine());									// Solicita numero de nuevo
+				}
+				
+				return numero;
+			}
+
+			catch (NumberFormatException e)																	// Mensaje de error para simbolos, letras y double/float
+			{
+				System.out.println("Error: debe ingresar un número entero.");
+				System.out.print("Intente nuevamente: ");
+			}
+		}
 	}
 }

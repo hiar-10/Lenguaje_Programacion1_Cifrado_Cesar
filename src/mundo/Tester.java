@@ -3,7 +3,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 
-public class Principal
+
+public class Tester
 {
 	// METODO MAIN
 	public static void main(String[] args)throws IOException
@@ -12,7 +13,7 @@ public class Principal
 		String mensaje1   = "Hola Mundo Java";
 		String mensaje2   = "Anita lava la tina";
 		String textoNormalizado = mensaje2.replace(" ", "").toLowerCase();
-		String mensaje3   = "Wxor Jyxbq";          							// Cifrado con desplazamiento 10
+		String mensaje3   = "Ryvk Wexny";          							// Cifrado con desplazamiento 10
 		int opcion = 0;
 
 
